@@ -1,0 +1,17 @@
+[package]
+name = "zeno-contract"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Runtime for Zeno WASM contracts: frame reader, codec, typed storage and effects encoder"
+repository.workspace = true
+
+[lib]
+doctest = false
+
+[dependencies]
+zeno-contract-macros = { path = "../zeno-contract-macros", version = "=0.1.0" }
+sha3 = { version = "=0.10.8", default-features = false }
+
+[dev-dependencies]
+trybuild = "1"

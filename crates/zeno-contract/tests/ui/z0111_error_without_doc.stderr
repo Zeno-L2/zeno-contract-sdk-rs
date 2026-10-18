@@ -1,0 +1,6 @@
+error: Z0111: the variant has no `///` line
+       fix: add a `///` line; it becomes the interface description
+  --> tests/ui/z0111_error_without_doc.rs:11:9
+   |
+11 |         A = 1,
+   |         ^

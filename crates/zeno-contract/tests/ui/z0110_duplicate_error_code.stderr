@@ -1,0 +1,6 @@
+error: Z0110: code 1 is used by an earlier variant
+       fix: give each variant its own code
+  --> tests/ui/z0110_duplicate_error_code.rs:14:9
+   |
+14 |         B = 1,
+   |         ^

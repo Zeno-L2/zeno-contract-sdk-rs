@@ -1,0 +1,6 @@
+error: Z0120: the type is not `Item<V>` or `Map<K, V>`
+       fix: declare `const NAME: Item<V> = Item::new();`
+  --> tests/ui/z0120_storage_on_wrong_type.rs:10:18
+   |
+10 |     const COUNT: u64 = 0;
+   |                  ^^^

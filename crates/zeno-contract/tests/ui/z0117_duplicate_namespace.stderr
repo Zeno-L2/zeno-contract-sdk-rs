@@ -1,0 +1,6 @@
+error: Z0117: namespace 0x01 is used by an earlier entry
+       fix: give each entry its own namespace
+  --> tests/ui/z0117_duplicate_namespace.rs:13:11
+   |
+13 |     const B: Item<u64> = Item::new();
+   |           ^

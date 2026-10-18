@@ -1,0 +1,6 @@
+error: Z0121: a second `#[on_deposit]` function
+       fix: keep one handler taking only `ctx`
+  --> tests/ui/z0121_second_deposit_handler.rs:13:12
+   |
+13 |     pub fn second(ctx: &mut Ctx) {}
+   |            ^^^^^^

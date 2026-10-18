@@ -1,0 +1,19 @@
+error[E0080]: evaluation panicked: Z0119: Item::new() outside a #[contract] module
+              fix: add #[storage(0xNN)] inside a #[contract] module
+  --> tests/ui/z0119_new_outside_contract.rs:5:26
+   |
+ 5 | const COUNT: Item<u64> = Item::new();
+   |                          ^^^^^^^^^^^ evaluation of `COUNT` failed inside this call
+   |
+note: inside `zeno_contract::Item::<u64>::new`
+ --> $RUST/core/src/panic.rs
+  |
+  |           $crate::panicking::panic_fmt($crate::const_format_args!($($t)+));
+  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the failure occurred here
+  |
+ ::: src/storage.rs
+  |
+  | /         panic!(
+  | |             "Z0119: Item::new() outside a #[contract] module\nfix: add #[storage(0xNN)] inside a #[contract] module"
+  | |         )
+  | |_________- in this macro invocation

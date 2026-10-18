@@ -1,0 +1,23 @@
+[package]
+name = "vault"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+doctest = false
+
+[dependencies]
+zeno-contract = { path = "../../crates/zeno-contract" }
+
+[dev-dependencies]
+zeno-testing = { path = "../../crates/zeno-testing" }
+
+[features]
+test-hook = []
+
+[package.metadata.zeno]
+artifacts = [{ name = "vault", metadata = "immutable" }, { name = "vault-testhook", features = ["test-hook"] }]

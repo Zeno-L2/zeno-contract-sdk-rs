@@ -1,0 +1,6 @@
+error: Z0115: the event is not a named-field struct
+       fix: use a named-field struct with a unique name
+  --> tests/ui/z0115_event_not_named.rs:10:16
+   |
+10 |     pub struct Ev(u8);
+   |                ^^

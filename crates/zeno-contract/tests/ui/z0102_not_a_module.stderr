@@ -1,0 +1,6 @@
+error: Z0102: `#[contract]` applies only to an inline `mod name { ... }` and takes no arguments
+       fix: write `#[contract] mod name { use super::*; ... }`
+ --> tests/ui/z0102_not_a_module.rs:6:1
+  |
+6 | fn f() {}
+  | ^^^^^^^^^

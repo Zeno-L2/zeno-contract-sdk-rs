@@ -1,0 +1,6 @@
+error: Z0101: this attribute works only inside a `#[contract]` module
+       fix: move the item into the module
+ --> tests/ui/z0101_outside_module.rs:6:1
+  |
+6 | fn f(ctx: &mut Ctx) {}
+  | ^^^^^^^^^^^^^^^^^^^^^^

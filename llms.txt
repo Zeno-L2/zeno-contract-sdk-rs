@@ -1,0 +1,20 @@
+# zeno-contract-sdk-rs
+
+> Rust SDK for Zeno WASM contracts: `no_std` modules with a three-import ABI, built by `cargo zeno` and tested against zeno-executor's runtime.
+
+Example contracts: `examples/counter` and the reference vault `examples/vault`.
+
+Rule for custody contracts: `ctx.withdraw` is unbounded, so the contract's ledger, debited with `checked_sub` under `ctx.caller()` before the withdrawal, is the only guard. Only production artifacts such as `vault.*` are ever deployed, never a test-only artifact such as `vault-testhook.*`.
+
+## Docs
+
+- [Agent guide](AGENTS.md): the model, the rules that make a module deployable, the commands and the abort codes.
+- [Guide](docs/guide.md): write a contract from the scaffold, step by step.
+- [API reference](docs/api.md): attributes, `Ctx`, storage, types, interface file and limits.
+- [Testing](docs/testing.md): the `zeno-testing` harness and `cargo zeno test`.
+- [Error codes](docs/errors.md): the cause and fix of every `Zxxxx` code.
+
+## Optional
+
+- [README](README.md): crates, commands and the full test run.
+- [Scaffold README](templates/contract/README.md): the file a new contract crate starts with.

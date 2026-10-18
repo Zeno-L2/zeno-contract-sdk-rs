@@ -1,0 +1,6 @@
+error[E0080]: evaluation panicked: Z0118: `key(...)` names a different count than the key has fields
+              fix: name one key field per tuple element
+  --> tests/ui/z0118_key_count.rs:10:11
+   |
+10 |     const BALANCES: Map<(Caller, AssetId), U256> = Map::new();
+   |           ^^^^^^^^ evaluation of `m::_` failed here

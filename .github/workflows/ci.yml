@@ -1,0 +1,55 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - name: rust toolchain
+        run: rustup toolchain install 1.99.1 --profile minimal --target wasm32v1-none --component rust-src,clippy,rustfmt
+      - name: fmt
+        run: cargo fmt --all --check
+      - name: clippy
+        run: cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: host tests
+        run: cargo test --locked --workspace --exclude counter --exclude vault
+      # With checksums pinned, cargo zeno downloads the pinned zeno-exec
+      # release into the cache; the later steps run that binary.
+      - name: artifacts are reproducible
+        run: cargo zeno build --check
+      - name: pinned zeno-exec
+        run: |
+          version=$(sed -n 's/^version = "\(.*\)"$/\1/p' crates/cargo-zeno/zeno-exec.pin)
+          echo "ZENO_EXEC=$HOME/.cache/zeno/zeno-exec/$version/zeno-exec" >> "$GITHUB_ENV"
+      - name: contract tests
+        run: cargo zeno test
+      - name: layout and session tests
+        run: |
+          WS=$(pwd -P)
+          ZENO_REQUIRE_WASM_TESTS=1 ZENO_SESSION_DIR="$WS/target/zeno" \
+          ZENO_LAYOUT_WASM="$WS/target/zeno/counter.wasm $WS/target/zeno/counter-v2.wasm $WS/target/zeno/vault-shape.wasm $WS/target/zeno/vault.wasm $WS/target/zeno/vault-testhook.wasm" \
+            cargo test --locked -p zeno-contract --test layout --test session
+          ZENO_REQUIRE_WASM_TESTS=1 \
+            cargo test --locked -p cargo-zeno --test check_mode --test guide_snippets
+      - name: scaffold
+        run: |
+          WS=$(pwd -P)
+          cargo build --locked -p cargo-zeno
+          cd "$(mktemp -d)"
+          export PATH="$WS/target/debug:$PATH"
+          cargo zeno new demo --sdk-path "$WS"
+          cd demo
+          cargo zeno test

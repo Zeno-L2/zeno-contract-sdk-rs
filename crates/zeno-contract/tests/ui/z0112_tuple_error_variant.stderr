@@ -1,0 +1,6 @@
+error: Z0112: a tuple variant
+       fix: use unit or named-field variants in one enum
+  --> tests/ui/z0112_tuple_error_variant.rs:12:10
+   |
+12 |         A(u8) = 1,
+   |          ^^^^

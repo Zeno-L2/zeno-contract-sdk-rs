@@ -1,0 +1,2 @@
+[alias]
+zeno = "run -q --locked -p cargo-zeno --"

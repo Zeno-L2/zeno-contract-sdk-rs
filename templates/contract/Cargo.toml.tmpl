@@ -1,0 +1,29 @@
+[package]
+name = "{{name}}"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+doctest = false
+
+[dependencies]
+zeno-contract = {{zeno-contract}}
+
+[dev-dependencies]
+zeno-testing = {{zeno-testing}}
+
+[package.metadata.zeno]
+artifacts = [{ name = "{{name}}" }]
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+debug = false
+
+[workspace]

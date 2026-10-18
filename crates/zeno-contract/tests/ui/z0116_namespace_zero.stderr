@@ -1,0 +1,6 @@
+error: Z0116: the namespace is not an integer literal in 0x01..=0xff
+       fix: use a literal from `0x01` to `0xff`
+ --> tests/ui/z0116_namespace_zero.rs:9:15
+  |
+9 |     #[storage(0)]
+  |               ^

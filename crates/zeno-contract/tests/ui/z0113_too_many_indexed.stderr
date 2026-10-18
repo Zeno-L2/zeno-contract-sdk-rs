@@ -1,0 +1,6 @@
+error: Z0113: more than 3 indexed fields
+       fix: index at most 3 fields
+  --> tests/ui/z0113_too_many_indexed.rs:18:9
+   |
+18 |         d: Hash32,
+   |         ^

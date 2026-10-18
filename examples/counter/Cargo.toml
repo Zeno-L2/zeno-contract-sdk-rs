@@ -1,0 +1,23 @@
+[package]
+name = "counter"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+doctest = false
+
+[dependencies]
+zeno-contract = { path = "../../crates/zeno-contract" }
+
+[dev-dependencies]
+zeno-testing = { path = "../../crates/zeno-testing" }
+
+[features]
+v2 = []
+
+[package.metadata.zeno]
+artifacts = [{ name = "counter" }, { name = "counter-v2", features = ["v2"] }]

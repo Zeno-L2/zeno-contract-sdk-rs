@@ -1,0 +1,6 @@
+error: Z0103: the first parameter is not `&Ctx` or `&mut Ctx`
+       fix: take `ctx: &Ctx` or `ctx: &mut Ctx` first, then named arguments; `run` and `__zeno*` are reserved for generated code
+  --> tests/ui/z0103_first_parameter.rs:10:14
+   |
+10 |     pub fn f(x: u8) {}
+   |              ^^^^^

@@ -1,0 +1,6 @@
+error: Z0109: the code is not an integer from 1 to 2147483647
+       fix: give every variant `= n` with `n >= 1`
+  --> tests/ui/z0109_error_code_zero.rs:12:15
+   |
+12 |         Bad = 0,
+   |               ^

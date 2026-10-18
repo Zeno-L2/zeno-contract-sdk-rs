@@ -1,0 +1,6 @@
+error: Z0105: the error type is not the module's `#[contract_error]` enum
+       fix: return the module's error enum
+  --> tests/ui/z0105_unknown_error_type.rs:10:43
+   |
+10 |     pub fn f(ctx: &mut Ctx) -> Result<(), u8> {
+   |                                           ^^

@@ -1,0 +1,6 @@
+error[E0080]: evaluation panicked: Z0106: `returns(...)` names a different count than the return type has outputs
+              fix: name each output: #[method(returns(a, b))]
+  --> tests/ui/z0106_returns_count.rs:10:12
+   |
+10 |     pub fn f(ctx: &mut Ctx) -> u64 {
+   |            ^ evaluation of `m::_` failed here

@@ -1,0 +1,6 @@
+error: Z0108: method `m39217` has the same selector as an earlier method
+       fix: rename one method
+  --> tests/ui/z0108_selector_collision.rs:14:12
+   |
+14 |     pub fn m39217(ctx: &mut Ctx) {}
+   |            ^^^^^^

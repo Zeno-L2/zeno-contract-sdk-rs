@@ -1,0 +1,11 @@
+version = "0.1.0"
+revision = "caeaf764270b1489a53c860c6006026af208f924"
+
+# SHA-256 of each release binary, keyed by platform: darwin-amd64,
+# darwin-arm64, linux-amd64, linux-arm64. A platform without an entry
+# skips the cache and the download.
+[sha256]
+darwin-amd64 = "46f86911cc0ad1a71e57a1780b342b4bd35bd76f2ba60d96433d92bb934c4d77"
+darwin-arm64 = "117e137dd7ec65ae45f47db2ea0baf938092583d18541fb2b8ea7a0c3c4f1f05"
+linux-amd64 = "d2ac21e4384508deed31e8ee89a5810f87d6c8e08f44ddcbc43702365d9d9665"
+linux-arm64 = "66f69d50c93cbfedded73466f3631fe1d3a8eb99995c5d455905fd7640f56d4b"

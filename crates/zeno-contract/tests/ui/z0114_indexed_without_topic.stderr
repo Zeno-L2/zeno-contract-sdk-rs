@@ -1,0 +1,15 @@
+error[E0277]: Z0114: `u64` cannot be an indexed event field
+  --> tests/ui/z0114_indexed_without_topic.rs:12:9
+   |
+12 |         a: u64,
+   |         ^ the trait `Topic` is not implemented for `u64`
+   |
+   = note: fix: index only Hash32, Caller, ContractId, CodeHash, AssetId, [u8; 32] or U256, or drop #[indexed]
+   = help: the following other types implement trait `Topic`:
+             AssetId
+             Caller
+             CodeHash
+             ContractId
+             Hash32
+             U256
+             [u8; 32]

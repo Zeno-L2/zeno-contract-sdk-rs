@@ -1,0 +1,16 @@
+[package]
+name = "zeno-testing"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Test harness for Zeno contracts over zeno-exec"
+repository.workspace = true
+
+[lib]
+doctest = false
+
+[dependencies]
+zeno-contract = { path = "../zeno-contract", version = "=0.1.0" }
+serde_json = "1"
+sha3 = { version = "=0.10.8", default-features = false }
+bech32 = "0.11"

@@ -1,0 +1,17 @@
+error[E0277]: Z0122: `f32` is not a supported contract type
+  --> tests/ui/z0122_unsupported_argument.rs:10:32
+   |
+10 |     pub fn f(ctx: &mut Ctx, x: f32) {}
+   |                                ^^^ the trait `Codec<'static>` is not implemented for `f32`
+   |
+   = note: fix: use u8..u128, i8..i128, bool, U256, [u8; N] with N in 1..=32, Hash32, Caller, ContractId, CodeHash, AssetId, L1Address, &[u8] or &str
+   = help: the following other types implement trait `Codec<'a>`:
+             i128
+             i16
+             i32
+             i64
+             i8
+             u128
+             u16
+             u32
+           and $N others

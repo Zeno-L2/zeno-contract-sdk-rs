@@ -1,0 +1,6 @@
+error: Z0107: unknown or malformed `#[method]` argument
+       fix: use `payable` or `returns(name, ...)`
+ --> tests/ui/z0107_unknown_argument.rs:9:14
+  |
+9 |     #[method(fast)]
+  |              ^^^^

@@ -1,0 +1,6 @@
+error: Z0104: a `payable` method takes `&Ctx`
+       fix: take `&mut Ctx`, or drop `payable`
+  --> tests/ui/z0104_payable_shared_ctx.rs:10:14
+   |
+10 |     pub fn f(ctx: &Ctx) {}
+   |              ^^^^^^^^^
